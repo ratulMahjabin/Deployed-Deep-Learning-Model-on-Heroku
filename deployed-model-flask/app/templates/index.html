@@ -1,0 +1,21 @@
+<html>
+  <body>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" />
+      <input type="submit" />
+    </form>
+
+    {% if jsonfile %}
+    <div class="container"></div>
+    <script>
+          var loadFile = function(event) {
+      var image = document.getElementById('output');
+       image.src = URL.createObjectURL(event.target.files[0]);};
+
+        const jsonfile = JSON.parse({{jsonfile|tojson}});
+        console.log(jsonfile);
+        document.querySelector(".container").innerHTML = JSON.stringify(jsonfile, null, 2);
+    </script>
+    {% endif %}
+  </body>
+</html>
