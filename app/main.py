@@ -1,7 +1,8 @@
+from crypt import methods
 import json
 from flask import Flask, render_template, request, jsonify
 
-from torch_utils import transform_image, get_prediction
+from app.torch_utils import transform_image, get_prediction
 
 app = Flask(__name__)
 
